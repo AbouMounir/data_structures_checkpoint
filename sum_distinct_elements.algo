@@ -1,0 +1,44 @@
+ALGORITHM sum_distinct_elements
+VAR
+    set_1, set_2 : ARRAY_OF INTEGER[];
+    i, j, sum : INTEGER := 0;
+    n, m : INTEGER
+BEGIN
+    
+    // cette partie sert à créer nos deux sets   
+    Write("enter the lentgh of your first set")
+    Read(n)
+    Write("enter the lentgh of your second set")
+    Read(m)
+    Write("enter the elements of your first set")
+    FOR i FROM 0 TO n STEP 1  DO
+        Read(set_1[i])
+    END_FOR
+    Write("enter the elements of your second set")
+    FOR j FROM 0 TO n STEP 1  DO
+        Read(set_2[j])
+    END_FOR
+
+    //cette partie sert à reinitialer les doublons à zero
+    FOR i FROM 0 TO n STEP 1  DO
+        FOR j FROM 0 TO m STEP 1  DO
+            IF (set_1[i] = set_2[j]) THEN
+                count = count + 1;
+                set_2[j] = 0;
+            END_IF
+            IF (count <> 0) THEN
+                set_1[i] = 0 ;
+            END_IF
+        END_FOR
+    END_FOR
+
+    // cette partie sert à faire la somme avec la reinitialisation
+    FOR i FROM 0 TO n STEP 1  DO
+        sum = sum + set_1[i];
+    END_FOR
+    FOR j FROM 0 TO m STEP 1  DO
+        sum = sum + set_2[j];
+    END_FOR
+    Write("lhe sum of the distinct elements is", sum)
+
+END

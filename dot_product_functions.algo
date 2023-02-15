@@ -1,0 +1,34 @@
+FUNCTION dot_product_f(v_1 : ARRAY_OF INTEGER, v_2 : ARRAY_OF INTEGER) : INTEGER
+VAR
+    ps : INTEGER := 0;
+BEGIN
+    FOR i FROM 0 TO v_1.length DO
+        ps = ps + v_1[i] * v_2[j];
+    END_FOR
+    RETURN ps ;
+END
+
+ALGORITHM orthogonal_vectors_p
+VAR
+    n : INTEGER;
+    liste : ARRAY_OF INTEGER[][];
+    ps : INTEGER;
+BEGIN
+    Write("enter a pair number of vectors that you want");
+    Read(n)
+    FOR i FROM 0 TO n DO
+        FOR j FROM 0 TO m DO
+            Write("enter the elements of the vector", i);
+            Read(liste[i][j]);
+        END_FOR
+    END_FOR
+    FOR i FROM 0 TO n DO
+        FOR j FROM i+1 TO n DO
+            ps := dot_product(liste[i], liste[j]);
+            IF (ps = 0) THEN
+            Write("the vectors",liste[i] "and", liste[j]"are orthogonal")
+            END_IF
+            
+        END_FOR
+    END_FOR
+END
